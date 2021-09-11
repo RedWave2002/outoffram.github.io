@@ -5,18 +5,20 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <link rel="dns-prefetch" href="https://outoffram.github.io">
+  <title>outoffram | ram的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+  <meta name="description" content="一个喜欢打游戏的人，梦想是开发独立游戏。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="outoffram | ram的博客">
+<meta property="og:url" content="https://outoffram.github.io/index.html">
+<meta property="og:site_name" content="outoffram | ram的博客">
+<meta property="og:description" content="一个喜欢打游戏的人，梦想是开发独立游戏。">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="outoffram">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="outoffram | ram的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -144,28 +146,80 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Github上传文件流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/11/test/">test</a>
+      <a class="article-title" href="/2021/09/11/Github%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E7%A8%8B/">Github上传文件流程</a>
     </h1>
   
 
         
-        <a href="/2021/09/11/test/" class="archive-article-date">
-  	<time datetime="2021-09-11T05:50:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-11</time>
+        <a href="/2021/09/11/Github%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2021-09-11T07:15:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>测试测试测试</p>
-<p><img src="/2021/09/11/test/outoffram.github.io\source_posts\test\QQ图片20210515120907.jpg" alt="QQ图片20210515120907"></p>
+        <h4 id="1-在github上创建一个新仓库"><a href="#1-在github上创建一个新仓库" class="headerlink" title="1. 在github上创建一个新仓库"></a>1. 在github上创建一个新仓库</h4><p>创建的时候主要是是否添加一个<code>README.md</code>文件，这个对最后push的步骤有点影响，后面详细说明。</p>
+<h4 id="2-将文件夹变成git可管理的仓库"><a href="#2-将文件夹变成git可管理的仓库" class="headerlink" title="2. 将文件夹变成git可管理的仓库"></a>2. 将文件夹变成git可管理的仓库</h4><p>首先选择一个要上传的文件夹，并进入这个文件夹，右键单击<code>Git Bash Here</code>。</p>
+<p>然后输入以下命令：</p>
+<p><code>$ git init</code></p>
+<p>这是这个文件夹下会产生一个.git文件，一般是隐藏起来的，点击查看，勾选隐藏文件就可以看到了，这是这个文件夹就变成git可管理的仓库了。</p>
+<h4 id="3-提交要上传的文件"><a href="#3-提交要上传的文件" class="headerlink" title="3. 提交要上传的文件"></a>3. 提交要上传的文件</h4><p>将这个文件夹下的所有文件全部提交：</p>
+<p><code>$ git add .</code></p>
+<p>指定该文件夹下的文件提交：</p>
+<p><code>$ git add 文件名</code></p>
+<p>然后输入：</p>
+<p><code>$ git status </code></p>
+<p>看一下当前分支是否在main上，因为现在github的默认分支是main，如果开始在master上，后面就会创建一个master分支，提交的文件也不在main上了。如果不在main上的话，就输入下面的命令：</p>
+<p><code>$ git checkout -b main</code></p>
+<p>这样，就转到main分支上了。</p>
+<h4 id="4-提交注释"><a href="#4-提交注释" class="headerlink" title="4. 提交注释"></a>4. 提交注释</h4><p><code>$ git commit -m &quot;注释&quot;</code></p>
+<h4 id="5-连接远程仓库"><a href="#5-连接远程仓库" class="headerlink" title="5. 连接远程仓库"></a>5. 连接远程仓库</h4><ol>
+<li><p>首先到<code>C:\Users\HP</code>这个路径下看有没有.ssh文件，我的电脑是惠普的所以是HP，其他电脑可能是别的名字，根据自己电脑来。如果有的话，看下里面有没有id_rsa和id_rsa.pub这两个文件，有就不用管这一步了。没有的话就继续下一步创建SSH密匙。</p>
+</li>
+<li><p>在电脑任意处右键单击<code>Git Bash Here</code></p>
+</li>
+<li><p>设置用户名</p>
+<p><code>$ git config --global user.name &quot;你的名字&quot;</code></p>
+</li>
+<li><p>设置用户名邮箱</p>
+<p><code>$ git config --global user.email &quot;你的邮箱&quot;</code></p>
+</li>
+<li><p>查看设置</p>
+<p><code>$ git config --list</code></p>
+</li>
+<li><p>创建SSH密匙，这一步一路回车即可。</p>
+<p><code>$ ssh-keygen -t rsa -C &quot;你刚刚输入的邮箱&quot;</code></p>
+</li>
+<li><p>配置github</p>
+<ul>
+<li>点击头像旁边的倒三角符号，单击<code>settings</code>，进入<code>SSH and GPG keys</code>，点击<code>New SSH key</code>，Title随便输入什么，下面的Key填<code>C:\Users\HP\.ssh</code>下的id_rsa.pub这个文件中的内容，直接复制粘贴即可。</li>
+<li>点击<code>Add SSH key</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="6-关联本地仓库"><a href="#6-关联本地仓库" class="headerlink" title="6. 关联本地仓库"></a>6. 关联本地仓库</h4><p><code>$ git remote add origin 你的SSH</code></p>
+<p>如果创建仓库的时候添加了md文件：</p>
+<p><img src="/2021/09/11/Github%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E7%A8%8B/outoffram.github.io\source_posts\Github上传文件流程\image-20210819114454920.png" alt="image-20210819114454920"></p>
+<p>否则：</p>
+<p><img src="/2021/09/11/Github%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E7%A8%8B/outoffram.github.io\source_posts\Github上传文件流程\image-20210819114550547.png" alt="image-20210819114550547"></p>
+<p>这样你的SSH就找到了。</p>
+<h4 id="7-将内容推送到远程仓库上"><a href="#7-将内容推送到远程仓库上" class="headerlink" title="7. 将内容推送到远程仓库上"></a>7. 将内容推送到远程仓库上</h4><p>如果创建仓库的时候添加了md文件，显然本地仓库和远程仓库的文件不匹配，需要先合并一下：</p>
+<p><code>$ git pull --rebase origin main</code></p>
+<p>再输入：</p>
+<p><code>$ git push origin main</code></p>
+<p>如果没有添加md文件，那么一开始这个仓库就是空的，直接输入：</p>
+<p><code>$ git push origin main</code></p>
+<p>这样就push上去了，你也可以在github上面看到刚刚提交的文件了。</p>
+<p>等远程仓库里面有了内容之后，下次再从本地库上传内容的时候只需输入下面命令就可以了：</p>
+<p><code>$ git push origin master</code></p>
 
       
 
@@ -174,11 +228,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">git, github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/11/test/">展开(～￣▽￣)～ >></a>
+          <a class="article-more-a" href="/2021/09/11/Github%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E7%A8%8B/">展开(～￣▽￣)～ >></a>
         </p>
       
 
@@ -218,7 +283,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 John Doe
+    		&copy; 2021 outoffram
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -312,6 +377,10 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">git, github</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
