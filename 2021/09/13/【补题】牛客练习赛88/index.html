@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://outoffram.github.io">
-  <title>【每日一题】POJ-1328 | outoffram | ram的博客</title>
+  <title>【补题】牛客练习赛88 | outoffram | ram的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原题链接：Radar Installation">
+  <meta name="description" content="我是lj，就做了A题出来，感觉自己没在认真打比赛。B题还行，C题需要想想，D-F感觉好难。  A - 活着的证据这个题吧，就是在保证剩余位数比剩余的V和I的总和小就行了，这样保证了每一位都有数字，在这种情况下再保证每一位尽量的大，就模拟下就好了。 AC code  1234567891011121314151617181920212223242526272829#include&lt;iostr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【每日一题】POJ-1328">
-<meta property="og:url" content="https://outoffram.github.io/2021/09/11/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91POJ-1328/index.html">
+<meta property="og:title" content="【补题】牛客练习赛88">
+<meta property="og:url" content="https://outoffram.github.io/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/index.html">
 <meta property="og:site_name" content="outoffram | ram的博客">
-<meta property="og:description" content="原题链接：Radar Installation">
+<meta property="og:description" content="我是lj，就做了A题出来，感觉自己没在认真打比赛。B题还行，C题需要想想，D-F感觉好难。  A - 活着的证据这个题吧，就是在保证剩余位数比剩余的V和I的总和小就行了，这样保证了每一位都有数字，在这种情况下再保证每一位尽量的大，就模拟下就好了。 AC code  1234567891011121314151617181920212223242526272829#include&lt;iostr">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-11T12:07:51.000Z">
-<meta property="article:modified_time" content="2021-09-11T12:55:23.033Z">
+<meta property="article:published_time" content="2021-09-13T15:45:23.000Z">
+<meta property="article:modified_time" content="2021-09-13T16:20:34.525Z">
 <meta property="article:author" content="outoffram">
-<meta property="article:tag" content="每日一题">
+<meta property="article:tag" content="补题">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="outoffram | ram的博客" type="application/atom+xml">
@@ -151,40 +151,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【每日一题】POJ-1328" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【补题】牛客练习赛88" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【每日一题】POJ-1328
+      【补题】牛客练习赛88
     </h1>
   
 
         
-        <a href="/2021/09/11/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91POJ-1328/" class="archive-article-date">
-  	<time datetime="2021-09-11T12:07:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-11</time>
+        <a href="/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/" class="archive-article-date">
+  	<time datetime="2021-09-13T15:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>原题链接</strong>：<a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-1328">Radar Installation</a></p>
-<span id="more"></span>
-
-<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a><strong>描述</strong></h3><p>现有一堆在x轴以上的点，要求是在x轴上安装最少数量的雷达以覆盖这些点，雷达的覆盖半径在每个case中都已经给出。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h3><p>一个雷达是否能覆盖一个点在于的是这个点和雷达的距离与覆盖半径的关系，那么根据高中数学知识，只要以该点为圆心，做半径等于覆盖半径的圆，看其是否与x轴有交点即可。</p>
-<p>得到这个结论之后就是最少数量的雷达了，这个问题也好解决。在一个case中，我们会得到多个与x轴的交区间或者是交点，亦或是与x轴没有交点，那x轴上就没有任何的雷达能覆盖到这个点了（直接就是-1了）。</p>
-<p>所以，我们的目标就是去找交集。先将所有的区间以区间左值排序，然后进行贪心的操作，对于两个相邻的要比较的区间，只会有两种情况存在，一种是两个区间没有交集，那好办，直接在上一个的答案的基础上++就可以了；如果有交集（当前区间左值小于range），那就不用在上一次答案的基础上++了，此时我们要做的操作是找到这个交集的左右端点，所以有一个取当前区间右值和range中的min值得到新的range值这个操作。（range就是交集的右值）</p>
-<h3 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a><strong>吐槽</strong></h3><ol>
-<li>大概本人当时就是没想到这一堆区间的交集是怎么取的。。感觉这个地方应该思索了很久。现在想来的确是贪心的思想orz</li>
-<li>忘记是在while循环里面了，所以那句f = 1;一直没有加上去，找了不知道多久的bug，反应迟钝（</li>
-</ol>
+        <blockquote>
+<p>我是lj，就做了A题出来，感觉自己没在认真打比赛。B题还行，C题需要想想，D-F感觉好难。</p>
+</blockquote>
+<h1 id="A-活着的证据"><a href="#A-活着的证据" class="headerlink" title="A - 活着的证据"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11178/A">A - 活着的证据</a></h1><p>这个题吧，就是在保证剩余位数比剩余的V和I的总和小就行了，这样保证了每一位都有数字，在这种情况下再保证每一位尽量的大，就模拟下就好了。</p>
+<p><strong>AC code</strong></p>
 <hr>
-<p><strong>AC代码</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;cmath&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">struct node&#123;</span><br><span class="line">    int x, y; //圆心</span><br><span class="line">    double l, r; //被x轴所截的左右截点x值</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">bool cmp(struct node a, struct node b)&#123;</span><br><span class="line">    return a.l &lt;= b.l;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    struct node p[1010] = &#123;0, 0, 0, 0&#125;;</span><br><span class="line">    int n, d, f = 1, sum = 0;</span><br><span class="line">    scanf(&quot;%d%d&quot;, &amp;n, &amp;d);</span><br><span class="line">    while(n != 0 &amp;&amp; d != 0)&#123;</span><br><span class="line">        f = 1; //别忘了重新初始化</span><br><span class="line">        sum++;</span><br><span class="line">        for(int i = 0; i &lt; n; i++)&#123;</span><br><span class="line">            scanf(&quot;%d%d&quot;, &amp;p[i].x, &amp;p[i].y);</span><br><span class="line">            if(p[i].y &lt;= d)&#123;</span><br><span class="line">                p[i].l = p[i].x - sqrtf(d * d - p[i].y * p[i].y);</span><br><span class="line">                p[i].r = p[i].x + sqrtf(d * d - p[i].y * p[i].y);</span><br><span class="line">            &#125;</span><br><span class="line">            else f = 0;</span><br><span class="line">        &#125;</span><br><span class="line">        if(!f) printf(&quot;Case %d: -1\n&quot;, sum);</span><br><span class="line">        else&#123;</span><br><span class="line">            sort(p, p+n, cmp);</span><br><span class="line">            double range = p[0].r;</span><br><span class="line">            int ans = 1;</span><br><span class="line">            for(int i = 1; i &lt; n; i++)&#123;</span><br><span class="line">                //有重合的区域，只用放一颗雷达，range找到该交集的右端点</span><br><span class="line">                if(p[i].l &lt;= range) range = min(p[i].r, range); </span><br><span class="line">                else&#123; //没有重合区域，各需两颗雷达</span><br><span class="line">                    range = p[i].r;</span><br><span class="line">                    ans++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            printf(&quot;Case %d: %d\n&quot;, sum, ans);</span><br><span class="line">        &#125;</span><br><span class="line">        scanf(&quot;%d%d&quot;, &amp;n, &amp;d);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, v, i, n;</span><br><span class="line"><span class="keyword">int</span> V[<span class="number">9</span>] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> I[<span class="number">9</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;v, &amp;i, &amp;n);</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= n; t++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">8</span>; j &gt; <span class="number">0</span>; j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(v + i - V[j] - I[j] &gt;= n - t &amp;&amp; v + i &gt;= <span class="number">0</span> &amp;&amp; v &gt;= V[j] &amp;&amp; i &gt;= I[j])&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(j);</span><br><span class="line">                    v -= V[j];</span><br><span class="line">                    i -= I[j];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; (<span class="keyword">int</span>)ans.<span class="built_in">size</span>(); t++) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, ans[t]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="B-寻寻觅觅寻不到"><a href="#B-寻寻觅觅寻不到" class="headerlink" title="B - 寻寻觅觅寻不到"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11178/B">B - 寻寻觅觅寻不到</a></h1><p>以前没用过substr就根本不知道它的好，对这种题很快就写出来了。</p>
+<ol>
+<li><p>截取部分字符</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line"><span class="keyword">int</span> pos, n;</span><br><span class="line">string a = str.<span class="built_in">substr</span>(pos, n); <span class="comment">//从pos开始连续截取n个字符</span></span><br></pre></td></tr></table></figure></li>
+<li><p>删除部分字符</p>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line"><span class="keyword">int</span> pos, n;</span><br><span class="line">str.<span class="built_in">erase</span>(pos, n); <span class="comment">//从pos开始连续删除n个字符</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>AC code</strong></p>
+<hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        string m, c;</span><br><span class="line">        <span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">        cin &gt;&gt; m &gt;&gt; c &gt;&gt; k;</span><br><span class="line">        <span class="keyword">if</span>(m.<span class="built_in">size</span>() != c.<span class="built_in">size</span>()) <span class="built_in">printf</span>(<span class="string">&quot;NO\n&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            string x = c.<span class="built_in">substr</span>(c.<span class="built_in">size</span>() - k, k);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(m[i] == x[<span class="number">0</span>])&#123;</span><br><span class="line">                    string y = m.<span class="built_in">substr</span>(i, k);</span><br><span class="line">                    <span class="keyword">if</span>(x == y) &#123;</span><br><span class="line">                        string mm = m, cc = c;</span><br><span class="line">                        mm.<span class="built_in">erase</span>(i, k);</span><br><span class="line">                        cc.<span class="built_in">erase</span>(c.<span class="built_in">size</span>() - k, k);</span><br><span class="line">                        <span class="keyword">if</span>(mm == cc) f = <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(f) <span class="built_in">printf</span>(<span class="string">&quot;YES\n&quot;</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;NO\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="C-踩不出足迹"><a href="#C-踩不出足迹" class="headerlink" title="C - 踩不出足迹"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11178/C">C - 踩不出足迹</a></h1><p>又是一道和异或有关的题目，根据同或和异或的真值表：（xnor为同或，xor为异或）</p>
+<table>
+<thead>
+<tr>
+<th align="center">x</th>
+<th align="center">y</th>
+<th align="center">x xor y</th>
+<th align="center">x xnor y</th>
+<th align="center">x xor y xor (1 &lt;&lt; k - 1)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p>1 &lt;&lt; k - 1 实际上就是一个二进制中每一位都是 1 的，位数为 k 的数（11111…）。</p>
+<p>由于每次操作可能是异或也可能是同或，假设 a 次异或， n - a 次同或让答案变得最大，那么其实答案就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans ^ a1 ^ a2 ^ a3 ^ ... ^ an ^ (1 &lt;&lt; k - 1) ^ (1 &lt;&lt; k - 1)...</span><br></pre></td></tr></table></figure>
+
+<p>而我们知道，异或偶数次同一个数相当于原来的数，所以最终的结果只有两个，要么是ans与所有数异或，要么是ans与所有数异或之后再异或一次1 &lt;&lt; k - 1，即为（ans为与所有数异或之后的结果）<code>ans = max(ans, ans ^ (1 &lt;&lt; k - 1))</code>。</p>
+<p>当然这题数据范围比较大，用 long long 会有一位是符号位，所以实际存的数位是 63 位；所以必须使用 unsigned long long ，注意输入输出占位符是 %llu 就行了。</p>
+<p><strong>AC code</strong></p>
+<hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>, s = <span class="number">1</span>, n, k, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%llu&quot;</span>, &amp;a[i]);</span><br><span class="line">        ans ^= a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    s = ans ^ (((<span class="number">1ull</span> &lt;&lt; k - <span class="number">1</span>) - <span class="number">1</span>) + (<span class="number">1ull</span> &lt;&lt; k - <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">if</span>(s &gt; ans) <span class="built_in">printf</span>(<span class="string">&quot;%llu&quot;</span>, s);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%llu&quot;</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -199,7 +259,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">补题</a>
         		</li>
       		
 		</ul>
@@ -255,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://outoffram.github.io/2021/09/11/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91POJ-1328/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://outoffram.github.io/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -269,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【补题】牛客练习赛88
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/09/11/Github-Pages%E6%89%98%E7%AE%A1%E7%BD%91%E9%A1%B5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Github Pages托管网页</div>
+    <a href="/2021/09/11/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91POJ-1328/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【每日一题】POJ-1328</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -311,8 +362,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://outoffram.github.io/2021/09/11/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91POJ-1328/", 
-    sourceId: "【每日一题】POJ-1328",
+    url: "https://outoffram.github.io/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/", 
+    sourceId: "【补题】牛客练习赛88",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
