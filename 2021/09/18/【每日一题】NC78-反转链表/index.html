@@ -16,7 +16,7 @@
 <meta property="og:description" content="牛客 21 天打卡写的题，好像都是面试题欸，数据结构好久没写了，又有点忘记了…今天是day1。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-18T02:20:27.000Z">
-<meta property="article:modified_time" content="2021-09-18T03:04:39.510Z">
+<meta property="article:modified_time" content="2021-09-18T03:19:55.106Z">
 <meta property="article:author" content="outoffram">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="每日一题">
@@ -178,22 +178,13 @@
 <span id="more"></span>
 
 <hr>
-<h1 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=188&&tqId=38547&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">原题链接</a></h1><h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a><strong>解题思路</strong>：</h2><ol>
-<li><p>反转链表要求时间复杂度 O(n) ，那想必是不能先遍历一遍到一个链表，再逆过来了（</p>
-</li>
-<li><p>首先需要定义一个 head，这个指针存逆转链表的头节点，初始化为NULL；pHead 原来是存头节点用的，在这题中，我们让它最后指向断开的链表右边那一部分链表的第一个节点。</p>
-</li>
-<li><p>因为要将链表切断（切断的位置就是当前节点和下一个节点之间），所以需要保存一下当前节点的下一个节点的地址，temp = pHead-&gt;next。</p>
-</li>
-<li><p>将链表切断，让当前节点的指针域存 head，即 pHead-&gt;next = head。</p>
-</li>
-<li><p>让head = pHead，即 head 为逆转链表的头部。</p>
-</li>
-<li><p>pHead = temp，最后使 pHead 保存断开链表右边部分的头。</p>
-</li>
-<li><p>重复2~6，直到 pHead 为空，显然此时, head最终为逆转链表的头节点，return head。</p>
-</li>
-</ol>
+<h2 id="题目链接：NC78-反转链表"><a href="#题目链接：NC78-反转链表" class="headerlink" title="题目链接：NC78 反转链表"></a>题目链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=188&&tqId=38547&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC78 反转链表</a></h2><p>1.反转链表要求时间复杂度 O(n) ，那想必是不能先遍历一遍到一个链表，再逆过来了（</p>
+<p>2.首先需要定义一个 head，这个指针存逆转链表的头节点，初始化为NULL；pHead 原来是存头节点用的，在这题中，我们让它最后指向断开的链表右边那一部分链表的第一个节点。</p>
+<p>3.因为要将链表切断（切断的位置就是当前节点和下一个节点之间），所以需要保存一下当前节点的下一个节点的地址，temp = pHead-&gt;next。</p>
+<p>4.将链表切断，让当前节点的指针域存 head，即 pHead-&gt;next = head。</p>
+<p>5.让head = pHead，即 head 为逆转链表的头部。</p>
+<p>6.pHead = temp，最后使 pHead 保存断开链表右边部分的头。</p>
+<p>7.重复2~6，直到 pHead 为空，显然此时, head最终为逆转链表的头节点，return head。</p>
 <h2 id="AC-code"><a href="#AC-code" class="headerlink" title="AC code"></a><strong>AC code</strong></h2><hr>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct ListNode &#123;</span></span><br><span class="line"><span class="comment">	int val;</span></span><br><span class="line"><span class="comment">	struct ListNode *next;</span></span><br><span class="line"><span class="comment">	ListNode(int x) :</span></span><br><span class="line"><span class="comment">			val(x), next(NULL) &#123;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">&#125;;*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">ReverseList</span><span class="params">(ListNode* pHead)</span> </span>&#123;</span><br><span class="line">        <span class="function">struct ListNode * <span class="title">head</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span>(pHead != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            ListNode * temp = pHead-&gt;next;</span><br><span class="line">            pHead-&gt;next = head;</span><br><span class="line">            head = pHead;</span><br><span class="line">            pHead = temp ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -463,6 +454,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -471,15 +466,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">补题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
