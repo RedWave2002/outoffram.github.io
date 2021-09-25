@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://outoffram.github.io">
-  <title>【补题】牛客练习赛88 | outoffram | ram的博客</title>
+  <title>【每日一题】NC15 求二叉树的层序遍历 | outoffram | ram的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我是lj，就做了A题出来，感觉自己没在认真打比赛。B题还行，C题需要想想，D-F感觉好难。">
+  <meta name="description" content="day8。。。还是有些知识点遗忘了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【补题】牛客练习赛88">
-<meta property="og:url" content="https://outoffram.github.io/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/index.html">
+<meta property="og:title" content="【每日一题】NC15 求二叉树的层序遍历">
+<meta property="og:url" content="https://outoffram.github.io/2021/09/25/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91NC15-%E6%B1%82%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/index.html">
 <meta property="og:site_name" content="outoffram | ram的博客">
-<meta property="og:description" content="我是lj，就做了A题出来，感觉自己没在认真打比赛。B题还行，C题需要想想，D-F感觉好难。">
+<meta property="og:description" content="day8。。。还是有些知识点遗忘了">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-13T15:45:23.000Z">
-<meta property="article:modified_time" content="2021-09-18T03:56:03.467Z">
+<meta property="article:published_time" content="2021-09-25T05:46:23.000Z">
+<meta property="article:modified_time" content="2021-09-25T05:58:13.330Z">
 <meta property="article:author" content="outoffram">
-<meta property="article:tag" content="补题">
+<meta property="article:tag" content="每日一题">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="outoffram | ram的博客" type="application/atom+xml">
@@ -151,20 +152,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【补题】牛客练习赛88" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【每日一题】NC15-求二叉树的层序遍历" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【补题】牛客练习赛88
+      【每日一题】NC15 求二叉树的层序遍历
     </h1>
   
 
         
-        <a href="/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/" class="archive-article-date">
-  	<time datetime="2021-09-13T15:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-13</time>
+        <a href="/2021/09/25/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91NC15-%E6%B1%82%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" class="archive-article-date">
+  	<time datetime="2021-09-25T05:46:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-25</time>
 </a>
         
       </header>
@@ -172,79 +173,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>我是lj，就做了A题出来，感觉自己没在认真打比赛。B题还行，C题需要想想，D-F感觉好难。</p>
+<p>day8。。。还是有些知识点遗忘了</p>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="A-活着的证据"><a href="#A-活着的证据" class="headerlink" title="A - 活着的证据"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11178/A">A - 活着的证据</a></h1><p>这个题吧，就是在保证剩余位数比剩余的V和I的总和小就行了，这样保证了每一位都有数字，在这种情况下再保证每一位尽量的大，就模拟下就好了。</p>
-<p><strong>AC code</strong></p>
-<hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, v, i, n;</span><br><span class="line"><span class="keyword">int</span> V[<span class="number">9</span>] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> I[<span class="number">9</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;v, &amp;i, &amp;n);</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= n; t++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">8</span>; j &gt; <span class="number">0</span>; j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(v + i - V[j] - I[j] &gt;= n - t &amp;&amp; v + i &gt;= <span class="number">0</span> &amp;&amp; v &gt;= V[j] &amp;&amp; i &gt;= I[j])&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(j);</span><br><span class="line">                    v -= V[j];</span><br><span class="line">                    i -= I[j];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; (<span class="keyword">int</span>)ans.<span class="built_in">size</span>(); t++) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, ans[t]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="B-寻寻觅觅寻不到"><a href="#B-寻寻觅觅寻不到" class="headerlink" title="B - 寻寻觅觅寻不到"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11178/B">B - 寻寻觅觅寻不到</a></h1><p>以前没用过substr就根本不知道它的好，对这种题很快就写出来了。</p>
-<ol>
-<li><p>截取部分字符</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line"><span class="keyword">int</span> pos, n;</span><br><span class="line">string a = str.<span class="built_in">substr</span>(pos, n); <span class="comment">//从pos开始连续截取n个字符</span></span><br></pre></td></tr></table></figure></li>
-<li><p>删除部分字符</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line"><span class="keyword">int</span> pos, n;</span><br><span class="line">str.<span class="built_in">erase</span>(pos, n); <span class="comment">//从pos开始连续删除n个字符</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><strong>AC code</strong></p>
-<hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        string m, c;</span><br><span class="line">        <span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">        cin &gt;&gt; m &gt;&gt; c &gt;&gt; k;</span><br><span class="line">        <span class="keyword">if</span>(m.<span class="built_in">size</span>() != c.<span class="built_in">size</span>()) <span class="built_in">printf</span>(<span class="string">&quot;NO\n&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            string x = c.<span class="built_in">substr</span>(c.<span class="built_in">size</span>() - k, k);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(m[i] == x[<span class="number">0</span>])&#123;</span><br><span class="line">                    string y = m.<span class="built_in">substr</span>(i, k);</span><br><span class="line">                    <span class="keyword">if</span>(x == y) &#123;</span><br><span class="line">                        string mm = m, cc = c;</span><br><span class="line">                        mm.<span class="built_in">erase</span>(i, k);</span><br><span class="line">                        cc.<span class="built_in">erase</span>(c.<span class="built_in">size</span>() - k, k);</span><br><span class="line">                        <span class="keyword">if</span>(mm == cc) f = <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(f) <span class="built_in">printf</span>(<span class="string">&quot;YES\n&quot;</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;NO\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="C-踩不出足迹"><a href="#C-踩不出足迹" class="headerlink" title="C - 踩不出足迹"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/11178/C">C - 踩不出足迹</a></h1><p>又是一道和异或有关的题目，根据同或和异或的真值表：（xnor为同或，xor为异或）</p>
-<table>
-<thead>
-<tr>
-<th align="center">x</th>
-<th align="center">y</th>
-<th align="center">x xor y</th>
-<th align="center">x xnor y</th>
-<th align="center">x xor y xor (1 &lt;&lt; k - 1)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
-</tr>
-</tbody></table>
-<p>1 &lt;&lt; k - 1 实际上就是一个二进制中每一位都是 1 的，位数为 k 的数（11111…）。</p>
-<p>由于每次操作可能是异或也可能是同或，假设 a 次异或， n - a 次同或让答案变得最大，那么其实答案就是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans ^ a1 ^ a2 ^ a3 ^ ... ^ an ^ (1 &lt;&lt; k - 1) ^ (1 &lt;&lt; k - 1)...</span><br></pre></td></tr></table></figure>
-
-<p>而我们知道，异或偶数次同一个数相当于原来的数，所以最终的结果只有两个，要么是ans与所有数异或，要么是ans与所有数异或之后再异或一次1 &lt;&lt; k - 1，即为（ans为与所有数异或之后的结果）<code>ans = max(ans, ans ^ (1 &lt;&lt; k - 1))</code>。</p>
-<p>当然这题数据范围比较大，用 long long 会有一位是符号位，所以实际存的数位是 63 位；所以必须使用 unsigned long long ，注意输入输出占位符是 %llu 就行了。</p>
-<p><strong>AC code</strong></p>
-<hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>, s = <span class="number">1</span>, n, k, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%llu&quot;</span>, &amp;a[i]);</span><br><span class="line">        ans ^= a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    s = ans ^ (((<span class="number">1ull</span> &lt;&lt; k - <span class="number">1</span>) - <span class="number">1</span>) + (<span class="number">1ull</span> &lt;&lt; k - <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">if</span>(s &gt; ans) <span class="built_in">printf</span>(<span class="string">&quot;%llu&quot;</span>, s);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%llu&quot;</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="原题链接：NC15-求二叉树的层序遍历"><a href="#原题链接：NC15-求二叉树的层序遍历" class="headerlink" title="原题链接：NC15 求二叉树的层序遍历"></a>原题链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/04a5560e43e24e9db4595865dc9c63a3?tpId=188&&tqId=38595&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC15 求二叉树的层序遍历</a></h2><ul>
+<li>遍历每一层的节点，使用队列的结构，根节点不空就 push 进去，然后根据每一层的节点数继续往下扩展，内嵌一个 for 循环遍历这一层节点，结束后将这一层的节点 res 存到 ans 中。</li>
+<li>如果不是 vector 套 vector 存答案其实也不需要内嵌一个 for 循环，直接对队首节点往左右子节点扩展就行了，每次打印一下首节点的值即可。</li>
+<li>开始的时候蠢比了一下，判断节点是否是 ‘#’ ，但是这样很可能会访问到不该访问的区域，即段错误，所以肯定是判断节点地址是否存在。但是这样 ‘#’ 也进去了，我也不知道，可能之后的打印函数处理过吧。</li>
+</ul>
+<h2 id="AC-code"><a href="#AC-code" class="headerlink" title="AC code"></a>AC code</h2><hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *	int val;</span></span><br><span class="line"><span class="comment"> *	struct TreeNode *left;</span></span><br><span class="line"><span class="comment"> *	struct TreeNode *right;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * </span></span><br><span class="line"><span class="comment">         * @param root TreeNode类 </span></span><br><span class="line"><span class="comment">         * @return int整型vector&lt;vector&lt;&gt;&gt;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt; <span class="built_in">levelOrder</span>(TreeNode* root) &#123;</span><br><span class="line">            <span class="comment">// write code here</span></span><br><span class="line">            queue&lt;TreeNode*&gt; q;</span><br><span class="line">            <span class="keyword">if</span>(root != <span class="literal">NULL</span>) q.<span class="built_in">push</span>(root);</span><br><span class="line">            <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                vector&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">                <span class="keyword">int</span> s = q.<span class="built_in">size</span>();</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s; i++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(q.<span class="built_in">front</span>()-&gt;left != <span class="literal">NULL</span>)&#123;</span><br><span class="line">                        q.<span class="built_in">push</span>(q.<span class="built_in">front</span>()-&gt;left);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(q.<span class="built_in">front</span>()-&gt;right != <span class="literal">NULL</span>)&#123;</span><br><span class="line">                        q.<span class="built_in">push</span>(q.<span class="built_in">front</span>()-&gt;right);</span><br><span class="line">                    &#125;</span><br><span class="line">                    res.<span class="built_in">push_back</span>(q.<span class="built_in">front</span>()-&gt;val);</span><br><span class="line">                    q.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(res);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -259,7 +198,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">补题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -315,7 +258,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://outoffram.github.io/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://outoffram.github.io/2021/09/25/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91NC15-%E6%B1%82%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -329,18 +272,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/09/15/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%85%A8%E6%8E%92%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【算法学习笔记】全排列
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/09/11/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91POJ-1328/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【每日一题】POJ-1328</div>
+    <a href="/2021/09/23/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91NC93-%E8%AE%BE%E8%AE%A1LRU%E7%BC%93%E5%AD%98%E7%BB%93%E6%9E%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【每日一题】NC93-设计LRU缓存结构</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -371,8 +305,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://outoffram.github.io/2021/09/13/%E3%80%90%E8%A1%A5%E9%A2%98%E3%80%91%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B88/", 
-    sourceId: "【补题】牛客练习赛88",
+    url: "https://outoffram.github.io/2021/09/25/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%91NC15-%E6%B1%82%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/", 
+    sourceId: "【每日一题】NC15-求二叉树的层序遍历",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
