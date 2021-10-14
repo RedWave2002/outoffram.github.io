@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://outoffram.github.io">
   <title>【算法学习笔记】前缀和与差分 | outoffram | ram的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这个两个东西就是工具，有时候能很大程度上优化代码吧。">
+  <meta name="description" content="这个两个东西就是工具，有时候能很大程度上的优化吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【算法学习笔记】前缀和与差分">
 <meta property="og:url" content="https://outoffram.github.io/2021/10/12/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/index.html">
 <meta property="og:site_name" content="outoffram | ram的博客">
-<meta property="og:description" content="这个两个东西就是工具，有时候能很大程度上优化代码吧。">
+<meta property="og:description" content="这个两个东西就是工具，有时候能很大程度上的优化吧。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-12T08:35:29.000Z">
-<meta property="article:modified_time" content="2021-10-12T09:09:30.878Z">
+<meta property="article:modified_time" content="2021-10-13T03:28:28.545Z">
 <meta property="article:author" content="outoffram">
 <meta property="article:tag" content="算法学习笔记">
 <meta name="twitter:card" content="summary">
@@ -172,7 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>这个两个东西就是工具，有时候能很大程度上优化代码吧。</p>
+<p>这个两个东西就是工具，有时候能很大程度上的优化吧。</p>
 </blockquote>
 <span id="more"></span>
 
@@ -202,6 +202,12 @@
 <p><strong>AC code</strong></p>
 <hr>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n, k, a[N], s[N], ans = <span class="number">0</span>, m = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;a[i]);</span><br><span class="line">        s[i] = s[i - <span class="number">1</span>] + a[i];</span><br><span class="line">        ans += a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - k; i++)&#123;</span><br><span class="line">        m = <span class="built_in">max</span>(m, s[i + k - <span class="number">1</span>] - s[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans - m;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="P1969-NOIP2013-提高组-积木大赛"><a href="#P1969-NOIP2013-提高组-积木大赛" class="headerlink" title="P1969 [NOIP2013 提高组] 积木大赛"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1969">P1969 [NOIP2013 提高组] 积木大赛</a></h2><p>这题做法相当的多，其中一种可以用差分来做，这题比较好想到差分上去，但是如何将数组全部变 0 的最小操作数并不是很好想。</p>
+<p>首先对于这题来说，其实等同于将该数组全变 0 的最小操作数。若将该数组看成是某个数组的前缀和数组，那么可以求出其差分数组必然是有正有负的，为了让原数组变 0 ，就必须让差分数组全变 0，那就好说了，对正数就减，对负数就加，如果还留下有没有成功变 0 的（即没有配对成功的），那必然就是正负操作数的差值了。所以直接遍历一遍差分数组即可，时间复杂度可以缩到 O(n)。</p>
+<p><strong>AC code</strong></p>
+<hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, h[N], s[N], pos = <span class="number">0</span>, neg = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;h[i]);</span><br><span class="line">        s[i] += h[i];</span><br><span class="line">        s[i + <span class="number">1</span>] -= h[i]; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] &gt; <span class="number">0</span>) pos += s[i];</span><br><span class="line">        <span class="keyword">else</span> neg -= s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="built_in">min</span>(pos, neg) + <span class="built_in">abs</span>(pos - neg);</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -285,6 +291,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/10/13/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%8F%8C%E6%8C%87%E9%92%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【算法学习笔记】双指针
+        
+      </div>
+    </a>
   
   
     <a href="/2021/10/09/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E3%80%9110-1-10-9/" id="article-nav-older" class="article-nav-link-wrap">
