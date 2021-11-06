@@ -15,14 +15,15 @@
 <meta property="og:site_name" content="outoffram | ram的博客">
 <meta property="og:description" content="本文主要说明最小生成树 Kruskal 算法和 Prim 算法的原理，Prim 算法（优先队列优化）和 Kruskal 算法如何用线形基实现。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://outoffram.github.io/2021/09/19/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20211103114119180.png">
 <meta property="og:image" content="https://outoffram.github.io/2021/09/19/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20210915110659395.png">
 <meta property="og:image" content="https://outoffram.github.io/2021/09/19/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20210920105618256.png">
 <meta property="article:published_time" content="2021-09-19T01:54:11.000Z">
-<meta property="article:modified_time" content="2021-09-27T11:29:16.749Z">
+<meta property="article:modified_time" content="2021-11-03T03:43:13.986Z">
 <meta property="article:author" content="outoffram">
 <meta property="article:tag" content="算法学习笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://outoffram.github.io/2021/09/19/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20210915110659395.png">
+<meta name="twitter:image" content="https://outoffram.github.io/2021/09/19/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20211103114119180.png">
   
     <link rel="alternative" href="/atom.xml" title="outoffram | ram的博客" type="application/atom+xml">
   
@@ -187,6 +188,7 @@
 <li><strong>生成树</strong>：用 n-1 条边将图上的 n 个点连接起来，形成的树就称为生成树。</li>
 <li><strong>最小生成树</strong>：在连通图的所有生成树中，所有边权之和最小的生成树称为最小生成树。</li>
 </ul>
+<p><img src="/2021/09/19/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20211103114119180.png" alt="image-20211103114119180"></p>
 <h2 id="1-Kruskal算法"><a href="#1-Kruskal算法" class="headerlink" title="1. Kruskal算法"></a>1. Kruskal算法</h2><p>本文的 Kruskal 算法主要使用线形基实现。初始时，每个顶点都是一棵树，并且对并查集进行初始化。</p>
 <ol>
 <li>存图，对所有的边权从小到大排序。</li>
