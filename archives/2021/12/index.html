@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://outoffram.github.io">
-  <title>【算法学习笔记】约数 | outoffram | ram的博客</title>
+  <title>Archives: 2021/12 | outoffram | ram的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="求某数的约数、某数约数的个数、约数之和、最大公约数。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="【算法学习笔记】约数">
-<meta property="og:url" content="https://outoffram.github.io/2021/11/09/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BA%A6%E6%95%B0/index.html">
+  <meta name="description" content="一个喜欢打游戏的人，梦想是开发独立游戏。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="outoffram | ram的博客">
+<meta property="og:url" content="https://outoffram.github.io/archives/2021/12/index.html">
 <meta property="og:site_name" content="outoffram | ram的博客">
-<meta property="og:description" content="求某数的约数、某数约数的个数、约数之和、最大公约数。">
+<meta property="og:description" content="一个喜欢打游戏的人，梦想是开发独立游戏。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-09T13:47:38.000Z">
-<meta property="article:modified_time" content="2021-11-09T15:14:30.194Z">
 <meta property="article:author" content="outoffram">
-<meta property="article:tag" content="算法学习笔记">
-<meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="outoffram | ram的博客" type="application/atom+xml">
@@ -152,78 +148,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【算法学习笔记】约数" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      【算法学习笔记】约数
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/12/06/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/" class="archive-article-date">
+  	<time datetime="2021-12-06T12:41:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/12/06/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/">【算法学习笔记】快速幂</a>
     </h1>
   
 
-        
-        <a href="/2021/11/09/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BA%A6%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2021-11-09T13:47:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>求某数的约数、某数约数的个数、约数之和、最大公约数。</p>
-<span id="more"></span>
-
-<h1 id="求某数的所有约数——试除法"><a href="#求某数的所有约数——试除法" class="headerlink" title="求某数的所有约数——试除法"></a>求某数的所有约数——试除法</h1><p>若只是单纯打暴力从 2 枚举到 n 肯定是不行的，那么怎么去优化？</p>
-<ul>
-<li><p>首先可以知道，如果<code>n % i == 0</code>，那么<code>n % (n / i) == 0</code>，所以只要枚举那个较小的约数即可，即<code>i &lt;= n / i</code>。</p>
-</li>
-<li><p>除此之外，还有一个边界条件需要判断，当<code>i * i == n</code> 时，会多放一个 i 进去，所以需要加上一个判断条件<code>if(i != x / i)</code>。</p>
-</li>
-</ul>
-<p>时间复杂度：$O(sqrt(n)*\log n \log {\log n})≈O(sqrt(n))$  左式如何得出来的呢？</p>
-<p>首先每次循环需要$sqrt(n)$，然后是对所有约数的排序，求 n 中约数的个数有一种办法：</p>
-<p>对于 1，它的倍数是$n/1$个；</p>
-<p>对于 2，它的倍数是$n/2$个；</p>
-<p>……</p>
-<p>显然可以得知<strong>一个数</strong>是<strong>这个数</strong>所有倍数的约数，显然在 1 - n 中，所有数的倍数之和是 $\frac{n}{1} + \frac{n}{2} + \frac{n}{5} + … + \frac{n}{n}&lt; n\log n$，平均到每一个数上，那么每一个数的约数约等于 $\log n$（相当于求期望）。n 个数 sort 的时间复杂度为 $n \log n$，所以 $\log n$ 个约数就是 $\log n \log \log n$。而这个数是非常小的，所以算时间复杂度的的时候直接算$O(sqrt(n))$。</p>
-<h2 id="869-试除法求约数"><a href="#869-试除法求约数" class="headerlink" title="869. 试除法求约数"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/871/">869. 试除法求约数</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">get_divisors</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= x / i; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x % i == <span class="number">0</span>)&#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(i); </span><br><span class="line">            <span class="keyword">if</span>(i != x / i) ans.<span class="built_in">push_back</span>(x / i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n --)&#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        cin &gt;&gt; x;</span><br><span class="line">        <span class="keyword">auto</span> t = <span class="built_in">get_divisors</span>(x);</span><br><span class="line">        <span class="built_in">sort</span>(t.<span class="built_in">begin</span>(), t.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i: t) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, i);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="求某数约数的个数"><a href="#求某数约数的个数" class="headerlink" title="求某数约数的个数"></a>求某数约数的个数</h1><p>对于某个正整数 $n$，可知：$n=p_1^{α_1}+p_2^{α_2}+…+p_k^{α_k}$</p>
-<p>所以某一个小于等于$n$的约数可以表示为：$d=p_1^{β_1}+p_2^{β_2}+…+p_k^{β_k}$</p>
-<p>其中$p_1,p_2,…,p_k$是$n$的质因子，且$0≤β_i≤α_i$。</p>
-<p>所以根据乘法原理，$n$的约数一共有$(α_1+1)(α_2+1)…(α_3+1)$个。</p>
-<h2 id="870-约数个数"><a href="#870-约数个数" class="headerlink" title="870. 约数个数"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/872/">870. 约数个数</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long int</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; primes;</span><br><span class="line">    <span class="keyword">while</span>(n --)&#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= x / i; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(x % i == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span>(x % i == <span class="number">0</span>)&#123;</span><br><span class="line">                    x /= i;</span><br><span class="line">                    primes[i] ++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x &gt; <span class="number">1</span>) primes[x] ++;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i: primes)&#123;</span><br><span class="line">        ans = (ans * (i.second + <span class="number">1</span>) % mod) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="求某数的约数之和"><a href="#求某数的约数之和" class="headerlink" title="求某数的约数之和"></a>求某数的约数之和</h1><p>根据上面求约数的个数定理：</p>
-<p>约数之和 = $(p_1^0+p_1^1+…+p_1^{α_1})(p_2^0+p_2^1+…+p_2^{α_2})…(p_n^0+p_n^1+…+p_n^{α_n})$</p>
-<h2 id="871-约数之和"><a href="#871-约数之和" class="headerlink" title="871. 约数之和"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/873/">871. 约数之和</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long int</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; primes;</span><br><span class="line">    <span class="keyword">while</span>(n --)&#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= x / i; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(x % i == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">while</span>(x % i == <span class="number">0</span>)&#123;</span><br><span class="line">                    x /= i;</span><br><span class="line">                    primes[i] ++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x &gt; <span class="number">1</span>) primes[x] ++;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i: primes)&#123;</span><br><span class="line">        ll res = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> a = i.first, b = i.second;</span><br><span class="line">        <span class="keyword">while</span>(b --) res = (res * a % mod + <span class="number">1</span>) % mod;</span><br><span class="line">        ans = ans * res % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h1><p>首先介绍一些基本性质：</p>
-<ul>
-<li><p>一：若 $d|a$ 且 $d|b$，那么 $d|(a+b)$，$d|(ax+by)$。</p>
-</li>
-<li><p>二：$(a,b)=(b,a\mod b)$ 证明如下：</p>
-<p>$a\mod b = a - [\frac{a}{b}]*b = a-cb$</p>
-<ul>
-<li>先证左边的所有公约数都是右边的公约数：由于$(a,b)$，那么一定满足 $a$ 和 $b$ 的公约数 $d|a$，$d|b$，根据性质一，可知 $d|(a-cb)$，所以 $a$ 和 $b$ 的公约数全部都是 $b$ 和 $(a - cb)$ 的公约数。</li>
-<li>再证右边的所有公约数都是左边的公约数：由于$(b,a-cb)$，那么满足 $a$ 和 $a-cb$ 的公约数 $d|b$，$d|(a-cb)$，再用性质一得$d|(a-cb+cb)=d|a$，所以 $b$ 和 $(a - cb)$ 的公约数全部都是 $a$ 和 $b$ 的公约数。</li>
-<li>所以左右两边的公约数相同，那么其最大公约数也相同。</li>
-</ul>
-</li>
-</ul>
-<p>下面求最大公约数用的就是欧几里得算法，时间复杂度$O(logn)$</p>
-<h2 id="872-最大公约数"><a href="#872-最大公约数" class="headerlink" title="872. 最大公约数"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/874/">872. 最大公约数</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b?<span class="built_in">gcd</span>(b, a % b) : a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n --)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        cout &lt;&lt; <span class="built_in">gcd</span>(a, b) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -233,173 +187,68 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://outoffram.github.io/2021/11/09/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BA%A6%E6%95%B0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2021/11/10/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【算法学习笔记】欧拉函数
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/11/08/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E8%B4%A8%E6%95%B0%E7%AD%9B%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【算法学习笔记】质数筛法</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/12/06/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-12-06T02:35:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-06</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E6%9F%90%E6%95%B0%E7%9A%84%E6%89%80%E6%9C%89%E7%BA%A6%E6%95%B0%E2%80%94%E2%80%94%E8%AF%95%E9%99%A4%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求某数的所有约数——试除法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#869-%E8%AF%95%E9%99%A4%E6%B3%95%E6%B1%82%E7%BA%A6%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">869. 试除法求约数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E6%9F%90%E6%95%B0%E7%BA%A6%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">求某数约数的个数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">870. 约数个数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E6%9F%90%E6%95%B0%E7%9A%84%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-number">3.</span> <span class="toc-text">求某数的约数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-number">3.1.</span> <span class="toc-text">871. 约数之和</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">最大公约数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#872-%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">872. 最大公约数</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/12/06/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">【算法学习笔记】背包问题</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">算法学习笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "https://outoffram.github.io/2021/11/09/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BA%A6%E6%95%B0/", 
-    sourceId: "【算法学习笔记】约数",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
+    
 
-  
-
-  
-
-
-   
-       <section id="comments" class="comments">
-         <style>
-           .comments{margin:30px;padding:10px;background:#fff}
-           @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-         </style>
-         <div id="vcomment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  var notify = 'false' == true ? true : false;
-  var verify = 'false' == true ? true : false;
-  new Valine({
-    av: AV,
-    el: '#vcomment',
-    notify: notify,
-    app_id: "KkqUjHxOD2nclNKYdl9ladIg-gzGzoHsz",
-    app_key: "S1NbyleQBOVRaGzEuAfyAUzE",
-    placeholder: "Just go go",
-    avatar: "mm",
-  });
-</script>
-
-     </section>
-   
 
           </div>
         </div>
@@ -421,8 +270,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
