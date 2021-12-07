@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://outoffram.github.io">
   <title>【算法学习笔记】快速幂 | outoffram | ram的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个喜欢打游戏的人，梦想是开发独立游戏。">
+  <meta name="description" content="快速幂、快速幂求逆元。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【算法学习笔记】快速幂">
-<meta property="og:url" content="https://outoffram.github.io/2021/12/06/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/index.html">
+<meta property="og:url" content="https://outoffram.github.io/2021/12/07/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/index.html">
 <meta property="og:site_name" content="outoffram | ram的博客">
-<meta property="og:description" content="一个喜欢打游戏的人，梦想是开发独立游戏。">
+<meta property="og:description" content="快速幂、快速幂求逆元。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-12-06T12:41:57.000Z">
-<meta property="article:modified_time" content="2021-12-06T12:43:55.156Z">
+<meta property="article:published_time" content="2021-12-07T12:41:57.000Z">
+<meta property="article:modified_time" content="2021-12-07T15:30:40.570Z">
 <meta property="article:author" content="outoffram">
 <meta property="article:tag" content="算法学习笔记">
 <meta property="article:tag" content="数学">
@@ -164,15 +164,49 @@
   
 
         
-        <a href="/2021/12/06/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/" class="archive-article-date">
-  	<time datetime="2021-12-06T12:41:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-06</time>
+        <a href="/2021/12/07/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/" class="archive-article-date">
+  	<time datetime="2021-12-07T12:41:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>快速幂、快速幂求逆元。</p>
+<span id="more"></span>
+
+<h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><p>在 $O(log k)$ 的时间复杂度下，快速的求得 $a^kmodp$ 的结果，其中 $1≤a, p, k≤10^9$。</p>
+<ul>
+<li>预处理出 $a^{2^0},a^{2^1},…,a^{2^{log k}}mod p$ 的结果。</li>
+<li>将 k 拆成 $k = 2^{x_1}+2^{x_2}+…+2^{x_t}$ 即 k 的二进制表示，所以 $a^k = a^{2^{x_1}}a^{2^{x_2}}…a^{2^{x_t}}$。</li>
+<li>再利用模运算的性质进行取模运算。<ul>
+<li>(a + b) % p = (a % p + b % p) % p</li>
+<li>(a * b) % p = (a % p * b % p) % p</li>
+</ul>
+</li>
+</ul>
+<p>在后面的板子中，实际上只需要得到 k 的二进制表示即可。最后注意下开 long long 避免乘的过程中爆 int。</p>
+<h2 id="875-快速幂"><a href="#875-快速幂" class="headerlink" title="875. 快速幂"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/877/">875. 快速幂</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qmi</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k, <span class="keyword">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(k)&#123;</span><br><span class="line">        <span class="keyword">if</span>(k &amp; <span class="number">1</span>) res = (LL)res * a % p;</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = (LL)a * a % p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, k, p;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n --)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;a, &amp;k, &amp;p);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">qmi</span>(a, k, p));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="快速幂求逆元"><a href="#快速幂求逆元" class="headerlink" title="快速幂求逆元"></a>快速幂求逆元</h1><p><strong>乘法逆元</strong>的定义</p>
+<blockquote>
+<p>若整数 $b，m$ 互质，并且对于任意的整数 $a$，如果满足 $b|a$，则存在一个整数 $x$，使得 $\frac{a}{b}≡a \times x \pmod m$，则称 $x$ 为 $b$ 的模 $m$ 乘法逆元，记为 $b^{-1} \pmod m$。$b$ 存在乘法逆元的充要条件是 $b$ 与模数 $m$ 互质。当模数 $m$ 为质数时，$b^{m-2}$ 即为 $b$ 的乘法逆元。</p>
+</blockquote>
+<p>证明：</p>
+<p>由逆元的定义：$\frac{a}{b}≡a \times x \pmod m$</p>
+<p>所以 $\frac{a}{b}\mod m=ax\mod m $</p>
+<p>又$\frac{a}{b} b \mod m=(\frac{a}{b} \mod m+b \mod m)\mod m$</p>
+<p>$ax b \mod m=(ax \mod m+b \mod m)\mod m$</p>
+<p>所以有 $\frac{a}{b}b≡a \times xb \pmod m$</p>
+<p>即 $a≡a \times xb \pmod m$</p>
+<p>根据同余式的性质：若 $a≡b \pmod m,a=a_1d,b=b_1d,(d,m)=1$，则$a_1≡b_1 \pmod m$</p>
+<p>所以可得：$1≡xb \pmod m$</p>
+<p>根据费马小定理：a 为质数，若 a 与 n 互质，则 $a^{n-1}≡1(mod{n})$。</p>
+<p>所以求得 $b$ 的模 $m$ 乘法逆元为 $x=b^{m-2}$。</p>
+<h2 id="876-快速幂求逆元"><a href="#876-快速幂求逆元" class="headerlink" title="876. 快速幂求逆元"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/878/">876. 快速幂求逆元</a></h2><p>这题<strong>限定了 p 是一个质数</strong>，所以说 a 和 p 都是质数，因此在判断 a 和 p 是否互质时的条件可以直接写 a % p 是否为 0，而不需要去求 a 和 p 的最大公约数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qmi</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k, <span class="keyword">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(k)&#123;</span><br><span class="line">        <span class="keyword">if</span>(k &amp; <span class="number">1</span>) res = (LL)res * a % p;</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = (LL)a * a % p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, p;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n --)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;a, &amp;p);</span><br><span class="line">        LL res = <span class="built_in">qmi</span>(a, p - <span class="number">2</span>, p);</span><br><span class="line">        <span class="keyword">if</span>(a % p) <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, res);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;impossible\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -245,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://outoffram.github.io/2021/12/06/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://outoffram.github.io/2021/12/07/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,7 +322,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="toc-number">1.</span> <span class="toc-text">快速幂</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#875-%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="toc-number">1.1.</span> <span class="toc-text">875. 快速幂</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82%E6%B1%82%E9%80%86%E5%85%83"><span class="toc-number">2.</span> <span class="toc-text">快速幂求逆元</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#876-%E5%BF%AB%E9%80%9F%E5%B9%82%E6%B1%82%E9%80%86%E5%85%83"><span class="toc-number">2.1.</span> <span class="toc-text">876. 快速幂求逆元</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -305,7 +339,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://outoffram.github.io/2021/12/06/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/", 
+    url: "https://outoffram.github.io/2021/12/07/%E3%80%90%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%BF%AB%E9%80%9F%E5%B9%82/", 
     sourceId: "【算法学习笔记】快速幂",
     productKey: "true",
     target: "cloud-tie-wrapper"
